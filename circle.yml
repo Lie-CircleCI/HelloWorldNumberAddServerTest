@@ -6,3 +6,7 @@ machine:
 
   environment:
     WEBPY_ENV: test
+    
+  test:
+    override:
+      - nosetests
