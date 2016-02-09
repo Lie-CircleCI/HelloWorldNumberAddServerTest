@@ -59,10 +59,5 @@ https://circleci.com/gh/Lie-CircleCI/HelloWorldNumberAddServerTest/17
 
 [x] Fix test so final test says "Fixed":
 
+[x] Email Mahmood when done
 
-[] Email Mahmood when done
-
-
-
-Notes: 
-  + Occasionally got a "timeout waiting for server" 
