@@ -9,4 +9,5 @@ machine:
     
 test:
   override:
-    - nosetests --with-xunit $CIRCLE_TEST_REPORTS/nosetests.xml
+    - mkdir -p $CIRCLE_TEST_REPORTS/nosetests
+    - nosetests --with-xunit $CIRCLE_TEST_REPORTS/nosetests/nosetests.xml
