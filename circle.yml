@@ -8,9 +8,5 @@ machine:
   python:
     version: pypy-2.7.10
 
-## Customize test commands
-test:
-  override:
-    - nosetests:
-        environment:
-          WEBPY_ENV: test
+  environment:
+    WEBPY_ENV: test
