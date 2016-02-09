@@ -4,24 +4,26 @@ from paste.fixture import TestApp
 from nose.tools import *
 from HelloWorld import app
 
+#TODO: add better JSON validation here instead of just mustcontain(), instead parse the JSON and do a value lookup for key = "sum"
+
 class TestCode():
     def test_index(self):
         middleware = []
         testApp = TestApp(app.wsgifunc(*middleware))
         r = testApp.get('/add_integers?a=1&b=2')
         assert_equal(r.status, 200)
-        r.mustcontain('sum:3')
+        r.mustcontain('"sum":3')
         
     def test_index2_shouldFail(self):
         middleware = []
         testApp = TestApp(app.wsgifunc(*middleware))
-        r = testApp.get('/add_integers?a=1&b=3')
+        r = testApp.get('/add_integers?a=1&b=2')
         assert_equal(r.status, 200)
-        r.mustcontain('sum:4')        
+        r.mustcontain('"sum":4')        
         
     def test_index3(self):
         middleware = []
         testApp = TestApp(app.wsgifunc(*middleware))
         r = testApp.get('/add_integers?a=1&b=2&c=3&d=4')
         assert_equal(r.status, 200)
-        r.mustcontain('sum:10')
+        r.mustcontain('"sum":10')

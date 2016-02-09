@@ -24,13 +24,13 @@ class add_integers:
   def GET(self):
     web.header('Content-Type', 'application/json')
     get_input = web.input(_method='get')
-    output = 'sum:';
+    output = '{ "sum":';
     sum = 0;
     for key in get_input:
     # TODO: add safe access to values, error handling if there's not two arguments (maybe?), handling of non-integer argument values, etc...
 #      output += str(key) + ' = ' + str(get_input[key]) + ','
         sum += int(get_input[key])
-    output += str(sum);
+    output += str(sum) + " }";
     return output
 
 #if __name__ == "__main__":
