@@ -5,6 +5,33 @@
 # Goals:  simple, quick, just make it work
 #
 
-#Step 1:  make Hell World print to STDOUT:
+#Step 1:  print to STDOUT:
+#  http://stackoverflow.com/questions/1077347/hello-world-in-python
+#Step 2:  Update to make a web service:  
+#  http://www.dreamsyssoft.com/python-scripting-tutorial/create-simple-rest-web-service-with-python.php?/archives/6-Create-a-simple-REST-web-service-with-Python.html
 
-print "Hello, World!"
+
+#!/usr/bin/env python
+import web
+
+urls = (
+    '/add_integers', 'add_integers',
+)
+
+app = web.application(urls, globals())
+
+class add_integers:
+  def GET(self):
+    get_input = web.input(_method='get')
+    output = 'sum:';
+    sum = 0;
+    for key in get_input:
+    # TODO: add safe access to values, error handling if there's not two arguments (maybe?), handling of non-integer argument values, etc...
+#      output += str(key) + ' = ' + str(get_input[key]) + ','
+        sum += int(get_input[key])
+    output += str(sum);
+    return output
+
+if __name__ == "__main__":
+    app.run()
+    
