@@ -15,9 +15,9 @@ class TestCode():
     def test_index2_shouldFail(self):
         middleware = []
         testApp = TestApp(app.wsgifunc(*middleware))
-        r = testApp.get('/add_integers?a=1&b=2&c=3')
+        r = testApp.get('/add_integers?a=1&b=3')
         assert_equal(r.status, 200)
-        r.mustcontain('sum:3')        
+        r.mustcontain('sum:4')        
         
     def test_index3(self):
         middleware = []
