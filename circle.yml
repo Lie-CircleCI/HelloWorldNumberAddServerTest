@@ -1,0 +1,18 @@
+## Customize the test machine
+machine:
+
+  timezone:
+    America/Los_Angeles # Set the timezone
+
+  # Version of python to use
+  python:
+    version: pypy-2.7.10
+
+## Customize test commands
+test:
+  override:
+    - phpunit test/unit-tests # use PHPunit for testing
+  post:
+    - nosetests
+        environment:
+          WEBPY_ENV: test

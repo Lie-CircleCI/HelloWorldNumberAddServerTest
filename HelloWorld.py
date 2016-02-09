@@ -22,6 +22,7 @@ app = web.application(urls, globals())
 
 class add_integers:
   def GET(self):
+    web.header('Content-Type', 'application/json')
     get_input = web.input(_method='get')
     output = 'sum:';
     sum = 0;
@@ -32,6 +33,15 @@ class add_integers:
     output += str(sum);
     return output
 
-if __name__ == "__main__":
-    app.run()
-    
+#if __name__ == "__main__":
+#    app.run()
+ 
+
+#from: http://webpy.org/cookbook/testing_with_paste_and_nose
+import os
+
+def is_test():
+    if 'WEBPY_ENV' in os.environ:
+        return os.environ['WEBPY_ENV'] == 'test'
+
+if (not is_test()) and __name__ == "__main__": app.run()
