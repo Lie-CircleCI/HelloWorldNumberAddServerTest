@@ -14,12 +14,12 @@ class TestCode():
         assert_equal(r.status, 200)
         r.mustcontain('"sum":3')
         
-    def test_index2_shouldFail(self):
+    def test_index2(self):
         middleware = []
         testApp = TestApp(app.wsgifunc(*middleware))
-        r = testApp.get('/add_integers?a=1&b=2')
+        r = testApp.get('/add_integers?a=2&b=3')
         assert_equal(r.status, 200)
-        r.mustcontain('"sum":4')        
+        r.mustcontain('"sum":5')        
         
     def test_index3(self):
         middleware = []
