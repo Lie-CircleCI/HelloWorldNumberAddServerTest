@@ -11,6 +11,6 @@ machine:
 ## Customize test commands
 test:
   override:
-    - nosetests
+    - nosetests:
         environment:
           WEBPY_ENV: test
