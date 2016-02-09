@@ -11,3 +11,17 @@ class TestCode():
         r = testApp.get('/add_integers?a=1&b=2')
         assert_equal(r.status, 200)
         r.mustcontain('sum:3')
+        
+    def test_index2_shouldFail(self):
+        middleware = []
+        testApp = TestApp(app.wsgifunc(*middleware))
+        r = testApp.get('/add_integers?a=1&b=2&c=3')
+        assert_equal(r.status, 200)
+        r.mustcontain('sum:3')        
+        
+    def test_index3(self):
+        middleware = []
+        testApp = TestApp(app.wsgifunc(*middleware))
+        r = testApp.get('/add_integers?a=1&b=2&c=3&d=4')
+        assert_equal(r.status, 200)
+        r.mustcontain('sum:10')
