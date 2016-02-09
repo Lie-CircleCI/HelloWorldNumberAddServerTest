@@ -7,6 +7,6 @@ machine:
   environment:
     WEBPY_ENV: test
     
-  test:
-    override:
-      - nosetests
+test:
+  override:
+    - nosetests
