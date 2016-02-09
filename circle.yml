@@ -9,4 +9,4 @@ machine:
     
 test:
   override:
-    - nosetests
+    - nosetests --with-xunit $CIRCLE_TEST_REPORTS/nosetests.xml
