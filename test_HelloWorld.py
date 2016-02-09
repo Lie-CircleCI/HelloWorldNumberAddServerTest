@@ -1,3 +1,5 @@
+#from: http://webpy.org/cookbook/testing_with_paste_and_nose
+
 from paste.fixture import TestApp
 from nose.tools import *
 from HelloWorld import app
